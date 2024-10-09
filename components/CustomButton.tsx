@@ -18,6 +18,18 @@ const STYLES = {
     border: "1px solid #000",
     fontWeight: "bold",
   },
+  outlineYellow: {
+    background: "transparent",
+    color: "#FFCC01",
+    border: "1px solid #FFCC01",
+    fontWeight: "bold",
+  },
+  containedYellow: {
+    background: "#FFCC01",
+    color: "#000",
+    border: "1px solid #FFCC01",
+    fontWeight: "bold",
+  },
 };
 
 interface CustomButtonProps extends ButtonProps {

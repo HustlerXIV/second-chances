@@ -32,11 +32,10 @@ const LoginModule = () => {
       const res = await axios.post("/api/auth/login", userInfo);
 
       if (res.status === 200) {
-        // router.push("/profile");
-        console.log("Session data:", res.data);
+        router.push("/");
       }
     } catch (error: any) {
-      console.error("Login failed:", error); // Log the error for debugging
+      console.error("Login failed:", error);
     }
   };
 
@@ -51,8 +50,8 @@ const LoginModule = () => {
             <TextField
               label="Username"
               variant="standard"
-              value={userInfo.username} // Set the value to reflect the state
-              onChange={(e) => handleChange("username", e.target.value)} // Update state on change
+              value={userInfo.username}
+              onChange={(e) => handleChange("username", e.target.value)}
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
@@ -65,8 +64,8 @@ const LoginModule = () => {
               label="Password"
               type="password"
               variant="standard"
-              value={userInfo.password} // Set the value to reflect the state
-              onChange={(e) => handleChange("password", e.target.value)} // Update state on change
+              value={userInfo.password}
+              onChange={(e) => handleChange("password", e.target.value)}
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
@@ -83,7 +82,11 @@ const LoginModule = () => {
               design="containedBlack"
               onClick={handleSubmit} // Call handleSubmit directly
             />
-            <CustomButton label="Create Account" design="outlineBlack" />
+            <CustomButton
+              label="Create Account"
+              design="outlineBlack"
+              onClick={() => router.push("/sign-up")}
+            />
           </div>
         </div>
       </div>
