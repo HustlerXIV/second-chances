@@ -3,6 +3,7 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import { theme } from "@/styles/MuiTheme";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import ReduxProvider from "./store/ReduxProvider";
 
 export default function RootLayout({
   children,
@@ -13,9 +14,13 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <CssBaseline />
-        <Navbar />
-        <ThemeProvider theme={theme}>{children}</ThemeProvider>
-        <Footer />
+        <ReduxProvider>
+          <ThemeProvider theme={theme}>
+            <Navbar />
+            {children}
+            <Footer />
+          </ThemeProvider>
+        </ReduxProvider>
       </body>
     </html>
   );

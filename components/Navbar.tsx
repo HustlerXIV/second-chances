@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Container from "./Container";
 
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -30,42 +31,44 @@ const Navbar = () => {
 
   return (
     <nav className="sticky top-0 z-50 bg-customGray shadow-lg">
-      <div className="container mx-auto px-4 py-4 flex justify-end items-center text-black">
-        <ul className="flex space-x-8 items-center">
-          <li>
-            <a href="/" className="hover:text-blue-500">
-              HOME
-            </a>
-          </li>
-          <li>
-            <a href="/adopt" className="hover:text-blue-500">
-              ADOPT
-            </a>
-          </li>
-          <li>
-            <a href="/about" className="hover:text-blue-500">
-              ABOUT US
-            </a>
-          </li>
-          <li>
-            {isLoggedIn ? (
-              <a
-                onClick={logout}
-                className="bg-black py-3 px-4 text-white rounded-md cursor-pointer"
-              >
-                LOGOUT
+      <Container>
+        <div className="mx-auto py-4 flex justify-end items-center text-black">
+          <ul className="flex space-x-8 items-center">
+            <li>
+              <a href="/" className="hover:text-blue-500">
+                HOME
               </a>
-            ) : (
-              <a
-                href="/login"
-                className="bg-black py-3 px-4 text-white rounded-md cursor-pointer"
-              >
-                SIGN UP/SIGN IN
+            </li>
+            <li>
+              <a href="/adopt" className="hover:text-blue-500">
+                ADOPT
               </a>
-            )}
-          </li>
-        </ul>
-      </div>
+            </li>
+            <li>
+              <a href="/about" className="hover:text-blue-500">
+                ABOUT US
+              </a>
+            </li>
+            <li>
+              {isLoggedIn ? (
+                <a
+                  onClick={logout}
+                  className="bg-black py-3 px-4 text-white rounded-md cursor-pointer"
+                >
+                  LOGOUT
+                </a>
+              ) : (
+                <a
+                  href="/login"
+                  className="bg-black py-3 px-4 text-white rounded-md cursor-pointer"
+                >
+                  SIGN UP/SIGN IN
+                </a>
+              )}
+            </li>
+          </ul>
+        </div>
+      </Container>
     </nav>
   );
 };

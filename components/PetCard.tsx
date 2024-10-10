@@ -12,8 +12,6 @@ interface PetCardProps {
 }
 
 const PetCard: React.FC<PetCardProps> = ({ data }) => {
-  console.log("1", data);
-
   const {
     id = 0,
     name = "Nathalie",
