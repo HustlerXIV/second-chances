@@ -19,7 +19,7 @@ const BUTTON_LIST: ButtonListTypes[] = [
   { label: "DOGS", value: "dog" },
   { label: "CATS", value: "cat" },
   { label: "RABBITS", value: "rabbit" },
-  { label: "BRIDS", value: "brid" },
+  { label: "BIRDS", value: "bird" },
 ];
 
 const HomeModule = () => {

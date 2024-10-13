@@ -32,21 +32,21 @@ const Navbar = () => {
   return (
     <nav className="sticky top-0 z-50 bg-customGray shadow-lg">
       <Container>
-        <div className="mx-auto py-4 flex justify-end items-center text-black">
+        <div className="mx-auto py-4 flex justify-end items-center text-black font-bold">
           <ul className="flex space-x-8 items-center">
             <li>
-              <a href="/" className="hover:text-blue-500">
+              <a href="/" className="hover:text-customYellow">
                 HOME
               </a>
             </li>
             <li>
-              <a href="/adopt" className="hover:text-blue-500">
+              <a href="/adopt" className="hover:text-customYellow">
                 ADOPT
               </a>
             </li>
             <li>
-              <a href="/about" className="hover:text-blue-500">
-                ABOUT US
+              <a href="/my-pets" className="hover:text-customYellow">
+                MY PETS
               </a>
             </li>
             <li>

@@ -1,6 +1,7 @@
 import { IconButton } from "@mui/material";
 import React from "react";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { useRouter } from "next/navigation";
 
 interface PetCardProps {
   data: {
@@ -19,6 +20,12 @@ const PetCard: React.FC<PetCardProps> = ({ data }) => {
     photo_url = "https://t4.ftcdn.net/jpg/00/97/58/97/360_F_97589769_t45CqXyzjz0KXwoBZT9PRaWGHRk5hQqQ.jpg",
   } = data ?? {};
 
+  const router = useRouter();
+
+  const handleOnClick = () => {
+    router.push(`/adopt/${id}`);
+  };
+
   return (
     <div className="flex flex-col gap-[8px] w-[250px]">
       <div
@@ -33,10 +40,10 @@ const PetCard: React.FC<PetCardProps> = ({ data }) => {
           <div className="text-darkestGray font-bold truncate">
             Name: {name}
           </div>
-          <div className="text-normalGray truncate">Age: {age}</div>
+          <div className="text-normalGray truncate">Age: {age} months</div>
         </div>
         <div>
-          <IconButton className="bg-lightGray">
+          <IconButton className="bg-lightGray" onClick={() => handleOnClick()}>
             <ArrowForwardIcon />
           </IconButton>
         </div>
