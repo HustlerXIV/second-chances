@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+const BASE_URL =
+  process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:3001/api";
 
 const axiosInstance = axios.create({});
 
@@ -26,6 +28,7 @@ export const get = <T>(
   endpoint: string,
   config: AxiosRequestConfig = {}
 ): Promise<AxiosResponse<T>> => {
+  console.log("BASE_URL", `${BASE_URL}/${endpoint}`);
   return axiosInstance.get<T>(`${BASE_URL}/${endpoint}`, config);
 };
 

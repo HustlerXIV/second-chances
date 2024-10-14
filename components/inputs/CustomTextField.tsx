@@ -6,13 +6,8 @@ interface WhiteTextFieldProps {
   value: string;
   onChange: (value: string) => void;
   placeholder?: string;
-  theme?: {
-    labelColor?: string;
-    inputColor?: string;
-    backgroundColor?: string;
-    focusColor?: string;
-  };
   type?: string;
+  design?: string;
 }
 
 const CustomTextField: React.FC<WhiteTextFieldProps> = ({
@@ -20,17 +15,29 @@ const CustomTextField: React.FC<WhiteTextFieldProps> = ({
   value,
   onChange,
   placeholder,
-  theme = {
-    labelColor: "white",
-    inputColor: "black",
-    backgroundColor: "white",
-    focusColor: "#FFCC01",
-  },
+  design = "normarl",
   type,
 }) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange(e.target.value);
   };
+
+  const THEME_SET = {
+    normal: {
+      labelColor: "white",
+      inputColor: "black",
+      backgroundColor: "white",
+      focusColor: "#FFCC01",
+    },
+    black: {
+      labelColor: "black",
+      inputColor: "black",
+      backgroundColor: "white",
+      focusColor: "#FFCC01",
+    },
+  };
+
+  const theme = THEME_SET[design as keyof typeof THEME_SET] || THEME_SET.normal;
 
   return (
     <TextField
