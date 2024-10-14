@@ -28,7 +28,6 @@ export const get = <T>(
   endpoint: string,
   config: AxiosRequestConfig = {}
 ): Promise<AxiosResponse<T>> => {
-  console.log("BASE_URL", `${BASE_URL}/${endpoint}`);
   return axiosInstance.get<T>(`${BASE_URL}/${endpoint}`, config);
 };
 
