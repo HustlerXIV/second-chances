@@ -7,6 +7,18 @@ import Container from "./Container";
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  const logout = async () => {
+    try {
+      await axios.post("/api/auth/logout");
+      setIsLoggedIn(false);
+    } catch (error) {
+      console.error("Error logging out:", error);
+      setIsLoggedIn(false);
+    } finally {
+      setIsLoggedIn(false);
+    }
+  };
+
   useEffect(() => {
     const checkSession = async () => {
       try {
@@ -19,15 +31,6 @@ const Navbar = () => {
 
     checkSession();
   }, []);
-
-  const logout = async () => {
-    try {
-      await axios.post("/api/auth/logout");
-      setIsLoggedIn(false);
-    } catch (error) {
-      console.error("Error logging out:", error);
-    }
-  };
 
   return (
     <nav className="sticky top-0 z-50 bg-customGray shadow-lg">
