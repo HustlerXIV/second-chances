@@ -52,9 +52,9 @@ const EditPet = ({ params }: { params: { id: string } }) => {
     return specieLabel?.label;
   };
 
-  const getBreedLabel = (specie: string, label: string) => {
+  const getBreedLabel = (specie: string, breed: string) => {
     const breedLabel = animalBreeds[specie].find(
-      (item: any) => item.label === label
+      (item: any) => item.value === breed
     );
     setPetInfo((prev: any) => ({
       ...prev,

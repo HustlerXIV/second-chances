@@ -7,6 +7,7 @@ import Loader from "@/components/Loader";
 import CustomButton from "@/components/CustomButton";
 import { Divider } from "@mui/material";
 import AlertDialog from "@/components/Dialog";
+import animalBreeds from "@/data/animalBreeds";
 
 interface PetByIDProps {
   params: {
@@ -26,7 +27,15 @@ const PetByID: React.FC<PetByIDProps> = ({ params }) => {
     setLoading(false);
   };
 
-  const { name, breed, age, description, photo_url } = data ?? {};
+  const { name, species, breed, age, description, photo_url } = data ?? {};
+
+  const getBreedLabel = () => {
+    const breedLabel = animalBreeds[species].find(
+      (item: any) => item.value === breed
+    );
+
+    return breedLabel?.label;
+  };
 
   useEffect(() => {
     updatePetsData();
@@ -66,7 +75,7 @@ const PetByID: React.FC<PetByIDProps> = ({ params }) => {
               <div className="w-[140px]">
                 <b>Breed:</b>
               </div>
-              {breed}
+              {getBreedLabel()}
             </div>
             <Divider />
             <div className="flex gap-[10px] flex-wrap">
