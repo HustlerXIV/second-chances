@@ -1,5 +1,5 @@
 import { Button, ButtonProps } from "@mui/material";
-import React from "react";
+import React, { ReactNode } from "react";
 
 const STYLES = {
   normal: {
@@ -30,11 +30,17 @@ const STYLES = {
     border: "1px solid #FFCC01",
     fontWeight: "bold",
   },
+  danger: {
+    background: "red",
+    color: "#fff",
+    border: "1px solid red",
+    fontWeight: "bold",
+  },
 };
 
 interface CustomButtonProps extends ButtonProps {
   design?: keyof typeof STYLES;
-  label: string;
+  label: string | ReactNode;
   href?: string;
 }
 

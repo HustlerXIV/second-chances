@@ -6,6 +6,8 @@ interface CustomSelectProps {
   design?: string;
   onChange: (value: string) => void;
   options: any[];
+  defaultValue?: any;
+  value?: any;
 }
 
 const CustomSelect: React.FC<CustomSelectProps> = ({
@@ -13,6 +15,8 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
   design = "normal",
   onChange,
   options = [],
+  defaultValue,
+  value,
 }) => {
   const handleChange = (value: string) => {
     onChange(value);
@@ -64,6 +68,8 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
               borderBottom: `1px solid ${theme.focusColor}`, // Hover underline color
             },
           }}
+          defaultValue={defaultValue}
+          value={value}
         >
           {options.map((option: any) => (
             <MenuItem key={option.value} value={option.value}>
