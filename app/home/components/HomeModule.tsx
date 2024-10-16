@@ -82,10 +82,10 @@ const HomeModule = () => {
             })}
           </div>
         </div>
-        <div className="flex flex-wrap gap-[24px] justify-center my-[24px]">
+        <div className="flex flex-wrap gap-[24px] justify-center my-[24px] max-w-[900px]">
           {data.map((item: any) => {
             return (
-              <div key={item.id} className="w-1/4">
+              <div key={item.id}>
                 <PetCard data={item} />;
               </div>
             );

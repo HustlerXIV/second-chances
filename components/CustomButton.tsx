@@ -42,6 +42,7 @@ interface CustomButtonProps extends ButtonProps {
   design?: keyof typeof STYLES;
   label: string | ReactNode;
   href?: string;
+  disabled?: boolean;
 }
 
 const CustomButton: React.FC<CustomButtonProps> = ({
@@ -51,11 +52,18 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   label,
   href,
   onClick,
+  disabled,
 }) => {
   const baseSx = { ...sx, ...STYLES[design] };
 
   return (
-    <Button sx={baseSx} variant={variant} href={href} onClick={onClick}>
+    <Button
+      sx={baseSx}
+      variant={variant}
+      href={href}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {label}
     </Button>
   );

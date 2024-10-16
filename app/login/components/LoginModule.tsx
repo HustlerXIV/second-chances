@@ -32,7 +32,7 @@ const LoginModule = () => {
       const res = await axios.post("/api/auth/login", userInfo);
 
       if (res.status === 200) {
-        router.push("/");
+        window.location.href = "/";
       }
     } catch (error: any) {
       console.error("Login failed:", error);
@@ -80,7 +80,7 @@ const LoginModule = () => {
               label="Sign In"
               variant="contained"
               design="containedBlack"
-              onClick={handleSubmit} // Call handleSubmit directly
+              onClick={handleSubmit}
             />
             <CustomButton
               label="Create Account"

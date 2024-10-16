@@ -7,9 +7,6 @@ import CustomTextField from "@/components/inputs/CustomTextField";
 import animalBreeds from "@/data/animalBreeds";
 import animalSpecies from "@/data/animalSpecies";
 import React, { useEffect, useState } from "react";
-import AlertDialog from "@/components/Dialog";
-import { useDispatch, useSelector } from "react-redux";
-import { updateMyPetDialog } from "@/app/store/features/myPetSlice";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { get } from "@/lib/api/axios";
@@ -26,8 +23,6 @@ const EditPet = ({ params }: { params: { id: string } }) => {
     pet_status: "available",
   });
 
-  const dispatch = useDispatch<any>();
-  const { openDialog } = useSelector((state: any) => state.myPet);
   const router: any = useRouter();
   const { id } = params ?? {};
 
@@ -142,7 +137,7 @@ const EditPet = ({ params }: { params: { id: string } }) => {
                   onChange={(e: any) =>
                     handleChange(
                       "pet_status",
-                      e.target.checked ? "available" : "not_available"
+                      e.target.checked ? "available" : "adopted"
                     )
                   }
                   name="pet_status"
@@ -162,14 +157,6 @@ const EditPet = ({ params }: { params: { id: string } }) => {
           </div>
         </div>
       </Container>
-      <AlertDialog
-        title="Pet Created Successfully!"
-        content="Thank you for trusting us!"
-        onClose={() => dispatch(updateMyPetDialog(false))}
-        isOpen={openDialog}
-        confirmLabel="Confirm"
-        onConfirm={() => router.push("/my-pets")}
-      />
     </>
   );
 };

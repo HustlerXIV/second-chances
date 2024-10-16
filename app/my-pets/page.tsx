@@ -6,7 +6,9 @@ const MyPets = () => {
   return (
     <>
       <MyPetsHeader />
-      <MyPetsModule />
+      <div style={{ minHeight: "100vh" }}>
+        <MyPetsModule />
+      </div>
     </>
   );
 };
