@@ -8,7 +8,6 @@ import Select, { SelectChangeEvent } from "@mui/material/Select";
 import animalBreeds from "@/data/animalBreeds";
 import { Box, Divider, Input, Slider, Typography } from "@mui/material";
 import CustomButton from "@/components/CustomButton";
-import { fetchAdoptPageData } from "../action";
 import { useDispatch, useSelector } from "react-redux";
 import { updateFilterInfo } from "@/app/store/features/petsSlice";
 
