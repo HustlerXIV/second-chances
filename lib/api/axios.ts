@@ -2,7 +2,7 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 
 const BASE_URL =
-  process.env.NEXT_PUBLIC_API_BASE_URL || "http://3.107.185.5/api";
+  process.env.NEXT_PUBLIC_API_BASE_URL || "http://52.62.63.96/api";
 
 const axiosInstance = axios.create({});
 
