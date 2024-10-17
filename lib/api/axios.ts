@@ -2,7 +2,8 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 
 const BASE_URL =
-  process.env.NEXT_PUBLIC_API_BASE_URL || "http://52.62.63.96/api";
+  process.env.NEXT_PUBLIC_API_BASE_URL ||
+  "https://second-chances-api.onrender.com/api";
 
 const axiosInstance = axios.create({
   baseURL: BASE_URL,
